@@ -19,3 +19,24 @@ def compare_options(user, machine):
 		return None
 	elif user == "papel" and machine == "papel":
 		return None
+
+
+def result_message(value, text):
+	if value == True:
+		print " "
+		print "*" * 40
+		print text.center(40, " ")
+		print "*" * 40
+		print " "
+	elif value == False:
+		print " "
+		print "/" * 40
+		print text.center(40, " ")
+		print "/" * 40
+		print " "
+	elif value == None:
+		print " "
+		print "%" * 40
+		print text.center(40, " ")
+		print "%" * 40
+		print " "
