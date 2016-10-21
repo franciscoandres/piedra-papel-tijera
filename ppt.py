@@ -1,8 +1,6 @@
 import random 
 import core
 
-# RESET MACHINE OPTION
-
 options = ["piedra", "papel", "tijera"]
 
 user = {
