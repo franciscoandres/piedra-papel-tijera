@@ -3,7 +3,7 @@
 import core
 import player
 import machine
-import score
+import achievements
 
 playing = True
 options = ["piedra", "papel", "tijera"]
@@ -13,9 +13,12 @@ machine = machine.Machine()
 match = core.Core()
 
 while not player.name:
-	player.name = raw_input("Nombre: ")
+	player.name = raw_input("Jugador: ")
 
 while playing:
+
+	print "*" * 40
+	print "> Jugador: [{}] | Vidas: [{}]".format(player.name, player.life)
 
 	while not player.option in options:
 		try:
@@ -28,6 +31,8 @@ while playing:
 	match.machine = machine.option
 
 	print "> {}: {} | Maquina: {}".format(player.name, match.player.title(), match.machine.title())
+
+	print "*" * 40
 
 	result = match.get_result()
 
