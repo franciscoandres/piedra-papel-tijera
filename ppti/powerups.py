@@ -21,4 +21,4 @@ class PowerUps(object):
 		self.extraLife["counter"] += 1
 
 	def reset_counter(self):
-		self.extraLife["counter"] = 0
+		self.extraLife["counter"] = 1

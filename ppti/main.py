@@ -41,7 +41,6 @@ while playing:
 	if result == True:
 
 		counter = life.extraLife["counter"]
-		print counter
 		life.plus_counter()
 
 		if counter == 3:
