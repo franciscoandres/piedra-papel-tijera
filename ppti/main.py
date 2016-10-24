@@ -12,6 +12,9 @@ player = player.Player()
 machine = machine.Machine()
 match = core.Core()
 
+while not player.name:
+	player.name = raw_input("Nombre: ")
+
 while playing:
 
 	while not player.option in options:
@@ -24,7 +27,7 @@ while playing:
 	match.player = player.option
 	match.machine = machine.option
 
-	print "> Tu: {} | Maquina: {}".format(match.player.title(), match.machine.title())
+	print "> {}: {} | Maquina: {}".format(player.name, match.player.title(), match.machine.title())
 
 	result = match.get_result()
 
