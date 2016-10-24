@@ -12,3 +12,6 @@ class Machine(object):
 	@option.setter
 	def option(self, options):
 		self._option = random.choice(options)
+
+	def reset_option(self):
+		self._option = None
