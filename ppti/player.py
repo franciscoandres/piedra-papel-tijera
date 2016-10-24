@@ -6,7 +6,10 @@ class Player(object):
 
 	@property
 	def option(self):
-		return self._option
+		if self._option == None:
+			return self._option
+		else:
+			return self._option.lower()
 
 	@option.setter
 	def option(self, value):
