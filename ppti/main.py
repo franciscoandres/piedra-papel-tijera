@@ -3,7 +3,7 @@
 import core
 import player
 import machine
-import achievements
+import powerups
 
 playing = True
 options = ["piedra", "papel", "tijera"]
@@ -12,12 +12,14 @@ player = player.Player()
 machine = machine.Machine()
 match = core.Core()
 
+life = powerups.PowerUps()
+
 while not player.name:
 	player.name = raw_input("Jugador: ")
 
 while playing:
 
-	print "*" * 40
+	print "_" * 40
 	print "> Jugador: [{}] | Vidas: [{}]".format(player.name, player.life)
 
 	while not player.option in options:
@@ -32,16 +34,30 @@ while playing:
 
 	print "> {}: {} | Maquina: {}".format(player.name, match.player.title(), match.machine.title())
 
-	print "*" * 40
+	print "_" * 40
 
 	result = match.get_result()
 
 	if result == True:
+
+		counter = life.extraLife["counter"]
+		print counter
+		life.plus_counter()
+
+		if counter == 3:
+			player.handle_life = ("+", life.extra_life())
+			print life.extraLife["message"]
+
 		print "> Ganaste"
+
 	elif result == False:
 		player.handle_life = ("-", 1)
+
+		life.reset_counter()
 		print "> Perdiste"
 	elif result == None:
+
+		life.reset_counter()
 		print "> Empate"
 
 	print "> ¡!: Te quedan {} vidas".format(player.life)

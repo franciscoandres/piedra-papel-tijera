@@ -1,2 +1,0 @@
-class Achievements(object):
-	pass
