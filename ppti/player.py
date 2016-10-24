@@ -7,10 +7,7 @@ class Player(object):
 
 	@property
 	def name(self):
-		if self._option == None:
-			return self._name
-		else:
-			return self._name.title()
+		return self._name.title()
 
 	@name.setter
 	def name(self, value):
