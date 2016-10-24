@@ -1,8 +1,20 @@
 class Player(object):
 
 	def __init__(self):
+		self._name = ""
 		self._option = None
 		self._life = 3
+
+	@property
+	def name(self):
+		if self._option == None:
+			return self._name
+		else:
+			return self._name.title()
+
+	@name.setter
+	def name(self, value):
+		self._name = value
 
 	@property
 	def option(self):
