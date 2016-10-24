@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*- 
+
 import core
 import player
 import machine
@@ -14,7 +16,7 @@ while playing:
 
 	while not player.option in options:
 		try:
-			player.option = raw_input("Elige Piedra, Papel o Tijera: ")
+			player.option = raw_input("> Elige Piedra, Papel o Tijera: ")
 			machine.option = options
 		except ValueError:
 			print "Error"
@@ -22,20 +24,22 @@ while playing:
 	match.player = player.option
 	match.machine = machine.option
 
-	print "Tu eleccion fue: {}".format(match.player.title())
-	print "La maquina selecciono: {}".format(match.machine.title())
+	print "> Tu: {} | Maquina: {}".format(match.player.title(), match.machine.title())
 
 	result = match.get_result()
 
 	if result == True:
-		print "Ganaste"
+		print "> Ganaste"
 	elif result == False:
-		print "Perdiste"
+		player.handle_life = ("-", 1)
+		print "> Perdiste"
 	elif result == None:
-		print "Empate"
+		print "> Empate"
 
+	print "> ¡!: Te quedan {} vidas".format(player.life)
+	player.reset_option()
+	machine.reset_option()
 
-	playing = False
-
-	
-
+	if player.life == 0:
+		playing = False
+		print "> Juego terminado!"
