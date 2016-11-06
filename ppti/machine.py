@@ -1,6 +1,7 @@
 import random
+from core import Core
 
-class Machine(object):
+class Machine(Core):
 	
 	def __init__(self):
 		self._option = None
@@ -12,6 +13,3 @@ class Machine(object):
 	@option.setter
 	def option(self, options):
 		self._option = random.choice(options)
-
-	def reset_option(self):
-		self._option = None

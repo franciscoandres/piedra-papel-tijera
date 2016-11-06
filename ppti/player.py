@@ -1,4 +1,6 @@
-class Player(object):
+from core import Core
+
+class Player(Core):
 
 	def __init__(self):
 		self._name = ""
@@ -23,9 +25,6 @@ class Player(object):
 	@option.setter
 	def option(self, value):
 		self._option = value
-
-	def reset_option(self):
-		self._option = None
 
 	@property
 	def life(self):

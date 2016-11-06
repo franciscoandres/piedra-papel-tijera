@@ -21,6 +21,9 @@ class Core(object):
 	def machine(self, value):
 		self._machine = value
 
+	def reset_option(self):
+		self._option = None
+
 	def get_result(self):
 
 		if self.player == "piedra" and self.machine == "tijera":
